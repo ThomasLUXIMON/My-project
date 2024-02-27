@@ -3,27 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class Hand : MonoBehaviour
 {
+    Animator animator;
+    private float triggerTarget;
+    private float gripTarget;
+    private float triggerCurrent;
+    private float gripCurrent;
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+
+    void Update()
+    {
+        AnimateHand();
+    }
     internal void SetGrip(float v)
     {
-        throw new NotImplementedException();
+        gripTarget = v;
     }
 
     internal void SetTrigger(float v)
     {
-        throw new NotImplementedException();
+        triggerTarget = v;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void AnimateHand()
+    
+    
 }

@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class Hand : MonoBehaviour
+public class Hands : MonoBehaviour
 {
     public float speed;
     Animator animator;
@@ -38,17 +34,17 @@ public class Hand : MonoBehaviour
 
     void AnimateHand()
     {
-        if (gripCurrent!= gripTarget)
+        if (gripCurrent != gripTarget)
         {
             gripCurrent = Mathf.MoveTowards(gripCurrent, gripTarget, Time.deltaTime * speed);
             animator.SetFloat(animatorGripParam, gripCurrent);
 
         }
-        if (triggerCurrent!= triggerTarget)
+        if (triggerCurrent != triggerTarget)
         {
             triggerCurrent = Mathf.MoveTowards(triggerCurrent, triggerTarget, Time.deltaTime * speed);
             animator.SetFloat(animatorTriggerParam, triggerCurrent);
 
         }
-}
+    }
 }
